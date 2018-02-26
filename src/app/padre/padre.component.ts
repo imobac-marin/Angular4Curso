@@ -8,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 export class PadreComponent implements OnInit {
 
   avisos: String[] = ['Aviso1', 'Aviso2', 'Aviso3'];
+  texto: String;
+  mostrarMensaje(event) {
+    this.texto = event + ' marcado como leído';
+  }
   constructor() { }
 
   ngOnInit() {
   }
-
 }
