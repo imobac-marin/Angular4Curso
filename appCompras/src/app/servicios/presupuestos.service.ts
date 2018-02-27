@@ -7,6 +7,7 @@ import 'rxjs/Rx';
 export class PresupuestosService {
 
   bdURL = 'https://appcompras-9fd9a.firebaseio.com/presupuestos.json';
+  bdTableURL = 'https://appcompras-9fd9a.firebaseio.com/presupuestos';
   constructor(private http: Http) { }
 
   postPresupuesto(presupuesto: any) {
@@ -23,6 +24,23 @@ export class PresupuestosService {
 
   getPresupuestos() {
     return this.http.get(this.bdURL).map(resultado => resultado.json());
+  }
+
+  getPresupuesto(id$: String) {
+    const url = `${this.bdTableURL}/${id$}.json`;
+    return this.http.get(url).map(respuesta => respuesta.json());
+  }
+
+  putPresupuesto(presupuesto: any, id$: String) {
+    const newPresupuesto = JSON.stringify(presupuesto);
+    const headers = new Headers({
+      'Content-Type:': 'application/json'
+    });
+    const url = `${this.bdTableURL}/${id$}.json`;
+    return this.http.put(url, newPresupuesto, { headers }).map(resultado => {
+      console.log(resultado.json());
+      return resultado.json();
+    });
   }
 
 }

@@ -1,31 +1,31 @@
 <div class="row">
   <div class="col col-md"></div>
   <div class="col-10 col-md-8">
-    <h2>Añadir nuevo presupuesto</h2>
+    <h2>Editar presupuesto</h2>
     <a href="/presupuestos" class="btn btn-primary float-md-right">Regresar al listado</a>
     <form [formGroup]="presupuestoForm" (ngSubmit)="onSubmit()">
       <div class="form-group">
         <label for="proveedor">Proveedor</label>
         <i class="fa fa-check-circle check" *ngIf="presupuestoForm.controls.proveedor.valid"></i>
         <i class="fa fa-exclamation-circle uncheck" *ngIf="presupuestoForm.controls.proveedor.invalid && presupuestoForm.controls.proveedor.touched"></i>
-        <input type="text" id="proveedor" class="form-control" formControlName="proveedor">
+        <input type="text" id="proveedor" class="form-control" formControlName="proveedor" [(ngModel)]="presupuesto.proveedor">
         <p class="alert alert-danger" *ngIf="presupuestoForm.controls.proveedor.invalid && presupuestoForm.controls.proveedor.touched">El campo proveedor es obligatorio.</p>
       </div>
       <div class="form-group">
         <label for="fecha">Fecha</label>
-        <input type="date" id="fecha" class="form-control" formControlName="fecha">
+        <input type="date" id="fecha" class="form-control" formControlName="fecha" [(ngModel)]="presupuesto.fecha">
       </div>
       <div class="form-group">
         <label for="concepto">Concepto</label>
-        <input type="text" id="concepto" class="form-control" formControlName="concepto">
+        <input type="text" id="concepto" class="form-control" formControlName="concepto" [(ngModel)]="presupuesto.concepto">
       </div>
       <div class="form-group">
         <label for="base">Base Imponible</label>
-        <input type="number" id="base" class="form-control" formControlName="base">
+        <input type="number" id="base" class="form-control" formControlName="base" [(ngModel)]="presupuesto.base">
       </div>
       <div class="form-group">
         <label for="tipo">Tipo de IVA</label>
-        <select id="tipo" class="form-control" formControlName="tipo">
+        <select id="tipo" class="form-control" formControlName="tipo" [(ngModel)]="presupuesto.tipo">
           <option value="">Seleccione...</option>
           <option value="0"> 0 % </option>
           <option value="0.04"> 4 % </option>
@@ -41,7 +41,7 @@
         <label for="total">Total presupuesto</label>
         <input type="number" id="total" class="form-control" formControlName="total" [(ngModel)]="presupuestoForm.value.total" disabled>
       </div>
-      <button type="submit" class="btn btn-primary" [disabled]="!presupuestoForm.valid">Añadir presupuesto</button>
+      <button type="submit" class="btn btn-primary" [disabled]="!presupuestoForm.valid">Guardar cambios</button>
       <a class="btn btn-danger" routerLink="/presupuestos">Cancelar</a>
       <p class="alert alert-danger" *ngIf="!presupuestoForm.valid">Por favor, complete todos los campos obligatorios.</p>
     </form>
