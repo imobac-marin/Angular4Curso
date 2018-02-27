@@ -7,11 +7,13 @@ import { ProveedoresService } from './servicios/proveedores.service';
 import { ProveedoresComponent } from './proveedores/proveedores/proveedores.component';
 import { InicioComponent } from './inicio/inicio.component';
 import { HeaderComponent } from './header/header.component';
+import { AddproveedorComponent } from './proveedores/addproveedor/addproveedor.component';
 
 const routes: Routes = [
   { path: '', component: InicioComponent }, // Ruta de inicio
   { path: 'proveedores', component: ProveedoresComponent },
-  {path: '**', component: InicioComponent} // Redirige a la página de inicio si no es capaz de resolver la ruta.
+  { path: 'addproveedor', component: AddproveedorComponent },
+  { path: '**', component: InicioComponent } // Redirige a la página de inicio si no es capaz de resolver la ruta.
 ];
 
 @NgModule({
@@ -19,7 +21,8 @@ const routes: Routes = [
     AppComponent,
     ProveedoresComponent,
     InicioComponent,
-    HeaderComponent
+    HeaderComponent,
+    AddproveedorComponent
   ],
   imports: [
     BrowserModule,
