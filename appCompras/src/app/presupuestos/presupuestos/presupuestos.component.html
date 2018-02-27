@@ -10,6 +10,7 @@
       <th>IVA</th>
       <th>Total</th>
       <th>Editar</th>
+      <th>Borrar</th>
     </tr>
   </thead>
   <tbody>
@@ -22,6 +23,9 @@
       <td>{{presupuesto.total}}</td>
       <td>
         <button class="btn btn-success" routerLink="/editpresupuestos/{{presupuesto.id$}}">Editar</button>
+      </td>
+      <td>
+        <button class="btn btn-danger" (click)="eliminarPresupuesto(presupuesto.id$)">Borrar</button>
       </td>
     </tr>
   </tbody>

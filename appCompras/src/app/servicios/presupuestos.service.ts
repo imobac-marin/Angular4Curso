@@ -22,16 +22,16 @@ export class PresupuestosService {
       });
   }
 
-  getPresupuestos() {
+  getPresupuestos() { // recuperar todos los presupuestos.
     return this.http.get(this.bdURL).map(resultado => resultado.json());
   }
 
-  getPresupuesto(id$: String) {
+  getPresupuesto(id$: String) { // recuperar un presupuesto.
     const url = `${this.bdTableURL}/${id$}.json`;
     return this.http.get(url).map(respuesta => respuesta.json());
   }
 
-  putPresupuesto(presupuesto: any, id$: String) {
+  putPresupuesto(presupuesto: any, id$: String) { // actualizar un presupuesto.
     const newPresupuesto = JSON.stringify(presupuesto);
     const headers = new Headers({
       'Content-Type': 'application/json'
@@ -41,6 +41,13 @@ export class PresupuestosService {
       console.log(resultado.json());
       return resultado.json();
     });
+  }
+
+  delPresupuesto(id$: String) {
+    const url = `${this.bdTableURL}/${id$}.json`;
+    return this.http.delete(url).map(
+      respuesta => respuesta.json()
+    );
   }
 
 }
