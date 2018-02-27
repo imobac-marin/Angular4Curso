@@ -1,19 +1,27 @@
-import { ProveedoresService } from './servicios/proveedores.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { Routes, RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
+import { ProveedoresService } from './servicios/proveedores.service';
 import { ProveedoresComponent } from './proveedores/proveedores/proveedores.component';
+import { InicioComponent } from './inicio/inicio.component';
 
+const routes: Routes = [
+  { path: '', component: InicioComponent }, // Ruta de inicio
+  { path: 'proveedores', component: ProveedoresComponent },
+  {path: '**', component: InicioComponent} // Redirige a la página de inicio si no es capaz de resolver la ruta.
+];
 
 @NgModule({
   declarations: [
     AppComponent,
-    ProveedoresComponent
+    ProveedoresComponent,
+    InicioComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    RouterModule.forRoot(routes)
   ],
   providers: [ProveedoresService],
   bootstrap: [AppComponent]
