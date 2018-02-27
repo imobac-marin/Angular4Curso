@@ -34,7 +34,7 @@ export class PresupuestosService {
   putPresupuesto(presupuesto: any, id$: String) {
     const newPresupuesto = JSON.stringify(presupuesto);
     const headers = new Headers({
-      'Content-Type:': 'application/json'
+      'Content-Type': 'application/json'
     });
     const url = `${this.bdTableURL}/${id$}.json`;
     return this.http.put(url, newPresupuesto, { headers }).map(resultado => {
