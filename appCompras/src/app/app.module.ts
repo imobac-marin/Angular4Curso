@@ -1,7 +1,9 @@
+
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { ProveedoresService } from './servicios/proveedores.service';
@@ -10,6 +12,7 @@ import { InicioComponent } from './inicio/inicio.component';
 import { HeaderComponent } from './header/header.component';
 import { AddproveedorComponent } from './proveedores/addproveedor/addproveedor.component';
 import { AddpresupuestoComponent } from './presupuestos/addpresupuesto/addpresupuesto.component';
+import { PresupuestosService } from './servicios/presupuestos.service';
 
 const routes: Routes = [
   { path: '', component: InicioComponent }, // Ruta de inicio
@@ -32,9 +35,10 @@ const routes: Routes = [
     BrowserModule,
     RouterModule.forRoot(routes),
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpModule
   ],
-  providers: [ProveedoresService],
+  providers: [ProveedoresService, PresupuestosService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
