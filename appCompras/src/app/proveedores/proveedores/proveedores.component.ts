@@ -8,11 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProveedoresComponent implements OnInit {
 
-  mensaje: String;
+  proveedores: any;
   constructor(private proveedoresService: ProveedoresService) { }
 
   ngOnInit() {
-    this.mensaje = this.proveedoresService.getProveedores();
+    this.proveedores = this.proveedoresService.getProveedores();
   }
 
 }
