@@ -13,12 +13,14 @@ import { HeaderComponent } from './header/header.component';
 import { AddproveedorComponent } from './proveedores/addproveedor/addproveedor.component';
 import { AddpresupuestoComponent } from './presupuestos/addpresupuesto/addpresupuesto.component';
 import { PresupuestosService } from './servicios/presupuestos.service';
+import { PresupuestosComponent } from './presupuestos/presupuestos/presupuestos.component';
 
 const routes: Routes = [
   { path: '', component: InicioComponent }, // Ruta de inicio
   { path: 'proveedores', component: ProveedoresComponent },
   { path: 'addproveedor', component: AddproveedorComponent },
   { path: 'addpresupuesto', component: AddpresupuestoComponent },
+  { path: 'presupuestos', component: PresupuestosComponent },
   { path: '**', component: InicioComponent } // Redirige a la página de inicio si no es capaz de resolver la ruta.
 ];
 
@@ -29,7 +31,8 @@ const routes: Routes = [
     InicioComponent,
     HeaderComponent,
     AddproveedorComponent,
-    AddpresupuestoComponent
+    AddpresupuestoComponent,
+    PresupuestosComponent
   ],
   imports: [
     BrowserModule,

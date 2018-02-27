@@ -21,4 +21,8 @@ export class PresupuestosService {
       });
   }
 
+  getPresupuestos() {
+    return this.http.get(this.bdURL).map(resultado => resultado.json());
+  }
+
 }
