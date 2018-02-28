@@ -15,6 +15,7 @@ import { AddpresupuestoComponent } from './presupuestos/addpresupuesto/addpresup
 import { PresupuestosService } from './servicios/presupuestos.service';
 import { PresupuestosComponent } from './presupuestos/presupuestos/presupuestos.component';
 import { EditpresupuestosComponent } from './presupuestos/editpresupuestos/editpresupuestos.component';
+import { RegistroComponent } from './autenticacion/registro/registro.component';
 
 const routes: Routes = [
   { path: '', component: InicioComponent }, // Ruta de inicio
@@ -23,6 +24,7 @@ const routes: Routes = [
   { path: 'addpresupuesto', component: AddpresupuestoComponent },
   { path: 'presupuestos', component: PresupuestosComponent },
   { path: 'editpresupuestos/:id', component: EditpresupuestosComponent },
+  { path: 'registro', component: RegistroComponent },
   { path: '**', component: InicioComponent } // Redirige a la página de inicio si no es capaz de resolver la ruta.
 ];
 
@@ -35,7 +37,8 @@ const routes: Routes = [
     AddproveedorComponent,
     AddpresupuestoComponent,
     PresupuestosComponent,
-    EditpresupuestosComponent
+    EditpresupuestosComponent,
+    RegistroComponent
   ],
   imports: [
     BrowserModule,
