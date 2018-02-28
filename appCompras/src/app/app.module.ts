@@ -1,4 +1,3 @@
-
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
@@ -16,6 +15,7 @@ import { PresupuestosService } from './servicios/presupuestos.service';
 import { PresupuestosComponent } from './presupuestos/presupuestos/presupuestos.component';
 import { EditpresupuestosComponent } from './presupuestos/editpresupuestos/editpresupuestos.component';
 import { RegistroComponent } from './autenticacion/registro/registro.component';
+import { AutenticacionService } from './servicios/autenticacion.service';
 
 const routes: Routes = [
   { path: '', component: InicioComponent }, // Ruta de inicio
@@ -47,7 +47,10 @@ const routes: Routes = [
     ReactiveFormsModule,
     HttpModule
   ],
-  providers: [ProveedoresService, PresupuestosService],
+  providers: [
+    ProveedoresService,
+    PresupuestosService,
+    AutenticacionService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
