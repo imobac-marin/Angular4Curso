@@ -17,14 +17,15 @@ import { EditpresupuestosComponent } from './presupuestos/editpresupuestos/editp
 import { RegistroComponent } from './autenticacion/registro/registro.component';
 import { AutenticacionService } from './servicios/autenticacion.service';
 import { IniciosesionComponent } from './autenticacion/iniciosesion/iniciosesion.component';
+import { GuardService } from './servicios/guard.service';
 
 const routes: Routes = [
   { path: '', component: InicioComponent }, // Ruta de inicio
-  { path: 'proveedores', component: ProveedoresComponent },
-  { path: 'addproveedor', component: AddproveedorComponent },
-  { path: 'addpresupuesto', component: AddpresupuestoComponent },
-  { path: 'presupuestos', component: PresupuestosComponent },
-  { path: 'editpresupuestos/:id', component: EditpresupuestosComponent },
+  { path: 'proveedores', component: ProveedoresComponent, canActivate: [GuardService] },
+  { path: 'addproveedor', component: AddproveedorComponent, canActivate: [GuardService] },
+  { path: 'addpresupuesto', component: AddpresupuestoComponent, canActivate: [GuardService] },
+  { path: 'presupuestos', component: PresupuestosComponent, canActivate: [GuardService] },
+  { path: 'editpresupuestos/:id', component: EditpresupuestosComponent, canActivate: [GuardService] },
   { path: 'registro', component: RegistroComponent },
   { path: 'iniciosesion', component: IniciosesionComponent },
   { path: '**', component: InicioComponent } // Redirige a la página de inicio si no es capaz de resolver la ruta.
@@ -53,7 +54,8 @@ const routes: Routes = [
   providers: [
     ProveedoresService,
     PresupuestosService,
-    AutenticacionService],
+    AutenticacionService,
+    GuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
