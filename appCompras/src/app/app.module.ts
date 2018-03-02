@@ -4,6 +4,11 @@ import { Routes, RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { FacturasModule } from './facturas/facturas.module';
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AngularFireAuthModule } from 'angularfire2/auth';
+
+import { environment } from './config/firebase.config';
 
 import { AppComponent } from './app.component';
 import { ProveedoresComponent } from './proveedores/proveedores/proveedores.component';
@@ -58,7 +63,10 @@ const routes: Routes = [
     FormsModule,
     ReactiveFormsModule,
     HttpModule,
-    FacturasModule
+    FacturasModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireDatabaseModule,
+    AngularFireAuthModule
   ],
   providers: [
     ProveedoresService,
