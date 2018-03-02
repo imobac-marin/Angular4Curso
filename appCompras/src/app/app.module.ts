@@ -43,6 +43,7 @@ const routes: Routes = [
   { path: 'facturas', component: FacturasComponent },
   { path: 'addfactura', component: AddfacturaComponent },
   { path: 'editfactura/:id', component: EditfacturaComponent },
+  { path: 'uploads', component: UploadComponent },
   { path: '**', component: InicioComponent } // Redirige al componente de inicio si no es capaz de resolver la ruta.
 ];
 
