@@ -1,37 +1,53 @@
 import { Injectable } from '@angular/core';
+import { Headers, Http, Response } from '@angular/http';
+// tslint:disable-next-line:import-blacklist
+import 'rxjs/Rx';
 
 @Injectable()
 export class ProveedoresService {
 
-  proveedores: any = [
-    {
-      nombre: 'Timofónica',
-      cif: 'B12345678',
-      direccion: 'Paseo de la Castellita, 100',
-      cp: '28.010',
-      localidad: 'Madrid',
-      provincia: 'Madrid',
-      telefono: 911111111,
-      email: 'info@timofonica.com',
-      contacto: 'Juan Pérez'
-    },
-    {
-      nombre: 'Ibertrola',
-      cif: 'B87654321',
-      direccion: 'Príncipe de Verga, 200',
-      cp: '28.015',
-      localidad: 'Madrid',
-      provincia: 'Madrid',
-      telefono: 922222222,
-      email: 'info@ibertrola.com',
-      contacto: 'Laura Martínez'
-    }
-  ];
+  bdProvURL = 'https://appcompras-9fd9a.firebaseio.com/proveedores.json';
+  bdProvTableURL = 'https://appcompras-9fd9a.firebaseio.com/proveedores';
+  constructor(private http: Http) { }
 
-  constructor() { }
+  postProveedor(proveedor: any) {
+    const newProveedor = JSON.stringify(proveedor);
+    const headers = new Headers({
+      'Content-Type': 'application/json'
+    });
+    return this.http.post(this.bdProvURL, newProveedor, { headers })
+      .map(resultado => {
+        console.log(resultado.json());
+        return resultado.json();
+      });
+  }
 
-  getProveedores() {
-    return this.proveedores;
+  getProveedores() { // recuperar todos los Proveedores.
+    return this.http.get(this.bdProvURL).map(resultado => resultado.json());
+  }
+
+  getProveedor(id$: string) { // recuperar un Proveedor.
+    const url = `${this.bdProvTableURL}/${id$}.json`;
+    return this.http.get(url).map(respuesta => respuesta.json());
+  }
+
+  putProveedor(proveedor: any, id$: string) { // actualizar un presupuesto.
+    const newProveedor = JSON.stringify(proveedor);
+    const headers = new Headers({
+      'Content-Type': 'application/json'
+    });
+    const url = `${this.bdProvTableURL}/${id$}.json`;
+    return this.http.put(url, newProveedor, { headers }).map(resultado => {
+      console.log(resultado.json());
+      return resultado.json();
+    });
+  }
+
+  delProveedor(id$: string) {
+    const url = `${this.bdProvTableURL}/${id$}.json`;
+    return this.http.delete(url).map(
+      respuesta => respuesta.json()
+    );
   }
 
 }

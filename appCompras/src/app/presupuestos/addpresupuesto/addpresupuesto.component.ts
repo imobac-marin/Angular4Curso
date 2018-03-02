@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 import { PresupuestosService } from './../../servicios/presupuestos.service';
+import { ProveedoresService } from '../../servicios/proveedores.service';
 
 @Component({
   selector: 'app-addpresupuesto',
@@ -17,7 +18,20 @@ export class AddpresupuestoComponent implements OnInit {
   iva: any = 0;
   total: any = 0;
 
-  constructor(private pf: FormBuilder, private presupuestosService: PresupuestosService) { }
+  proveedores: any[] = [];
+
+  constructor(private pf: FormBuilder,
+    private presupuestosService: PresupuestosService,
+    private proveedoresService: ProveedoresService) {
+    this.proveedoresService.getProveedores().subscribe(proveedores => {
+      // tslint:disable-next-line:forin
+      for (const id$ in proveedores) {
+        const p = proveedores[id$];
+        p.id$ = id$;
+        this.proveedores.push(proveedores[id$]);
+      }
+    });
+  }
 
   ngOnInit() {
     this.presupuestoForm = this.pf.group({
