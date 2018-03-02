@@ -23,11 +23,13 @@ import { IniciosesionComponent } from './autenticacion/iniciosesion/iniciosesion
 import { FacturasComponent } from './facturas/facturas/facturas/facturas.component';
 import { EditfacturaComponent } from './facturas/facturas/editfactura/editfactura.component';
 import { AddfacturaComponent } from './facturas/facturas/addfactura/addfactura.component';
+import { UploadComponent } from './uploads/upload/upload.component';
 
 import { ProveedoresService } from './servicios/proveedores.service';
 import { PresupuestosService } from './servicios/presupuestos.service';
 import { AutenticacionService } from './servicios/autenticacion.service';
 import { GuardService } from './servicios/guard.service';
+import { LoadfileService } from './servicios/loadfile.service';
 
 const routes: Routes = [
   { path: '', component: InicioComponent }, // Ruta de inicio
@@ -55,7 +57,8 @@ const routes: Routes = [
     PresupuestosComponent,
     EditpresupuestosComponent,
     RegistroComponent,
-    IniciosesionComponent
+    IniciosesionComponent,
+    UploadComponent
   ],
   imports: [
     BrowserModule,
@@ -72,7 +75,8 @@ const routes: Routes = [
     ProveedoresService,
     PresupuestosService,
     AutenticacionService,
-    GuardService],
+    GuardService,
+    LoadfileService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
