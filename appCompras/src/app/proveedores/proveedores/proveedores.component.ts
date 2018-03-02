@@ -9,6 +9,8 @@ import { Component, OnInit } from '@angular/core';
 export class ProveedoresComponent implements OnInit {
 
   proveedores: any = [];
+  cargando = true;
+
   constructor(private proveedoresService: ProveedoresService) {
     this.proveedoresService.getProveedores().subscribe(proveedores => {
       // tslint:disable-next-line:forin
@@ -17,6 +19,7 @@ export class ProveedoresComponent implements OnInit {
         p.id$ = id$;
         this.proveedores.push(proveedores[id$]);
       }
+      this.cargando = false;
     });
   }
 
