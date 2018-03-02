@@ -50,4 +50,9 @@ export class ProveedoresService {
     );
   }
 
+  getProveedoresSearch(busqueda: string) {
+    const url = `${this.bdProvURL}?orderBy="nombre"&startAt="${busqueda}"&endAt="${busqueda}\uf8ff"`;
+    return this.http.get(url).map(respuesta => respuesta.json());
+  }
+
 }
