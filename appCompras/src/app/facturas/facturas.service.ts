@@ -1,37 +1,37 @@
+import { Http, Headers, Response } from '@angular/http';
 import { Injectable } from '@angular/core';
-import { Headers, Http, Response } from '@angular/http';
 // tslint:disable-next-line:import-blacklist
 import 'rxjs/Rx';
 
 @Injectable()
-export class PresupuestosService {
+export class FacturasService {
 
-  bdURL = 'https://appcompras-9fd9a.firebaseio.com/presupuestos.json';
-  bdTableURL = 'https://appcompras-9fd9a.firebaseio.com/presupuestos';
+  bdURL = 'https://appcompras-9fd9a.firebaseio.com/facturas.json';
+  bdTableURL = 'https://appcompras-9fd9a.firebaseio.com/facturas';
   constructor(private http: Http) { }
 
-  postPresupuesto(presupuesto: any) {
-    const newPresupuesto = JSON.stringify(presupuesto);
+  postFactura(factura: any) {
+    const newFactura = JSON.stringify(factura);
     const headers = new Headers({
       'Content-Type': 'application/json'
     });
-    return this.http.post(this.bdURL, newPresupuesto, { headers })
+    return this.http.post(this.bdURL, newFactura, { headers })
       .map(resultado => {
         console.log(resultado.json());
         return resultado.json();
       });
   }
 
-  getPresupuestos() { // recuperar todos los presupuestos.
+  getFacturas() {
     return this.http.get(this.bdURL).map(resultado => resultado.json());
   }
 
-  getPresupuesto(id$: string) { // recuperar un presupuesto.
+  getFactura(id$: string) {
     const url = `${this.bdTableURL}/${id$}.json`;
     return this.http.get(url).map(respuesta => respuesta.json());
   }
 
-  putPresupuesto(presupuesto: any, id$: string) { // actualizar un presupuesto.
+  putFactura(presupuesto: any, id$: string) {
     const newPresupuesto = JSON.stringify(presupuesto);
     const headers = new Headers({
       'Content-Type': 'application/json'
@@ -39,15 +39,14 @@ export class PresupuestosService {
     const url = `${this.bdTableURL}/${id$}.json`;
     return this.http.put(url, newPresupuesto, { headers }).map(resultado => {
       console.log(resultado.json());
-      return resultado.json();
+      resultado.json();
     });
   }
 
-  delPresupuesto(id$: string) {
+  delFactura(id$: string) {
     const url = `${this.bdTableURL}/${id$}.json`;
     return this.http.delete(url).map(
       respuesta => respuesta.json()
     );
   }
-
 }

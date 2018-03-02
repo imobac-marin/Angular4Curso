@@ -57,7 +57,7 @@ export class AddpresupuestoComponent implements OnInit {
       base: this.presupuestoForm.get('base').value,
       tipo: this.presupuestoForm.get('tipo').value,
       iva: this.presupuestoForm.get('iva').value,
-      total: this.presupuestoForm.get('total').value,
+      total: this.presupuestoForm.get('total').value
     };
     return savePresupuesto;
   }

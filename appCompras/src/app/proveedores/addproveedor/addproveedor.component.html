@@ -48,20 +48,6 @@
       <button type="submit" class="btn btn-success" [disabled]="!formprov.valid">Añadir proveedor</button>
       <p class="alert alert-danger" *ngIf="!formprov.valid">Por favor, complete todos los campos obligatorios.</p>
     </form>
-    <hr>
-    <pre>
-      {{proveedor | json}}
-    </pre>
-    <h4>Estado dirty: {{formprov.controls.email.dirty}}</h4>
-    <!--cuando el usuario empieza a usar el campo se vuelve true -->
-    <h4>Estado pristine: {{formprov.controls.email.pristine}}</h4>
-    <!--cuando el usuario empieza a usar el campo se vuelve false -->
-    <h4>Estado touched: {{formprov.controls.email.touched}}</h4>
-    <!--cuando el elemento ya no tiene el foco, se vuelve true -->
-    <h4>Estado valid: {{formprov.controls.email.valid}}</h4>
-    <!--cuando el campo cumple los requisitos establecidos, se vuelve true -->
-    <h4>Estado invalid: {{formprov.controls.email.invalid}}</h4>
-    <!--cuando el campo no cumple los requisitos establecidos, se vuelve true -->
   </div>
   <div class="col col-md"></div>
 </div>

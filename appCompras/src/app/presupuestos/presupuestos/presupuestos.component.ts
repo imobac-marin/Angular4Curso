@@ -25,7 +25,7 @@ export class PresupuestosComponent implements OnInit {
   ngOnInit() {
   }
 
-  eliminarPresupuesto(id: String) {
+  eliminarPresupuesto(id: string) {
     this.presupuestosService.delPresupuesto(id).subscribe(
       resultado => {
         this.presupuestos = [];

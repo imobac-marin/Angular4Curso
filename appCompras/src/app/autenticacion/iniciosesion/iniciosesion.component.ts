@@ -12,7 +12,7 @@ export class IniciosesionComponent implements OnInit {
 
   loginForm: FormGroup;
   userdata: any;
-  mensaje: Boolean = false;
+  mensaje = false;
 
   constructor(private formBuilder: FormBuilder,
     private autenticacionService: AutenticacionService,

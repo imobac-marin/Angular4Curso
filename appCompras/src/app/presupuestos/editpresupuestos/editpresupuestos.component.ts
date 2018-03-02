@@ -17,7 +17,7 @@ export class EditpresupuestosComponent implements OnInit {
   tipo: any;
   iva: any = 0;
   total: any = 0;
-  id: String;
+  id: string;
 
   constructor(private pf: FormBuilder,
     private presupuestosService: PresupuestosService,
