@@ -23,7 +23,7 @@
         <a class="nav-link" routerLink="/contratos">Contratos</a>
       </li>
       <li class="nav-item" routerLinkActive="active" *ngIf="!isAuth()">
-        <button class="btn btn-primary" routerLink="/inises">Inicio sesión</button>
+        <button class="btn btn-primary" routerLink="/iniciosesion">Inicio sesión</button>
       </li>
       <li class="nav-item" routerLinkActive="active" *ngIf="isAuth()">
         <button class="btn btn-primary" (click)="onLogout()">Cerrar sesión</button>

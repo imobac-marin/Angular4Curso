@@ -17,7 +17,6 @@ export class PresupuestosService {
     });
     return this.http.post(this.bdURL, newPresupuesto, { headers })
       .map(resultado => {
-        console.log(resultado.json());
         return resultado.json();
       });
   }
@@ -38,7 +37,6 @@ export class PresupuestosService {
     });
     const url = `${this.bdTableURL}/${id$}.json`;
     return this.http.put(url, newPresupuesto, { headers }).map(resultado => {
-      console.log(resultado.json());
       return resultado.json();
     });
   }

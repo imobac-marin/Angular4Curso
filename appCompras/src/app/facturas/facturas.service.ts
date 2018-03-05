@@ -17,7 +17,6 @@ export class FacturasService {
     });
     return this.http.post(this.bdURL, newFactura, { headers })
       .map(resultado => {
-        console.log(resultado.json());
         return resultado.json();
       });
   }
@@ -38,7 +37,6 @@ export class FacturasService {
     });
     const url = `${this.bdTableURL}/${id$}.json`;
     return this.http.put(url, newPresupuesto, { headers }).map(resultado => {
-      console.log(resultado.json());
       resultado.json();
     });
   }

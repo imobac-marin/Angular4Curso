@@ -17,7 +17,6 @@ export class ProveedoresService {
     });
     return this.http.post(this.bdProvURL, newProveedor, { headers })
       .map(resultado => {
-        console.log(resultado.json());
         return resultado.json();
       });
   }
@@ -38,7 +37,6 @@ export class ProveedoresService {
     });
     const url = `${this.bdProvTableURL}/${id$}.json`;
     return this.http.put(url, newProveedor, { headers }).map(resultado => {
-      console.log(resultado.json());
       return resultado.json();
     });
   }
