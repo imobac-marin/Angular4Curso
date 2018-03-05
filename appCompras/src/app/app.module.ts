@@ -30,6 +30,8 @@ import { PresupuestosService } from './servicios/presupuestos.service';
 import { AutenticacionService } from './servicios/autenticacion.service';
 import { GuardService } from './servicios/guard.service';
 import { LoadfileService } from './servicios/loadfile.service';
+import { ContratosComponent } from './uploads/contratos/contratos.component';
+import { DetallesComponent } from './uploads/detalles/detalles.component';
 
 const routes: Routes = [
   { path: '', component: InicioComponent }, // Ruta de inicio
@@ -44,6 +46,7 @@ const routes: Routes = [
   { path: 'addfactura', component: AddfacturaComponent },
   { path: 'editfactura/:id', component: EditfacturaComponent },
   { path: 'uploads', component: UploadComponent },
+  { path: 'contratos', component: ContratosComponent },
   { path: '**', component: InicioComponent } // Redirige al componente de inicio si no es capaz de resolver la ruta.
 ];
 
@@ -59,7 +62,9 @@ const routes: Routes = [
     EditpresupuestosComponent,
     RegistroComponent,
     IniciosesionComponent,
-    UploadComponent
+    UploadComponent,
+    ContratosComponent,
+    DetallesComponent
   ],
   imports: [
     BrowserModule,

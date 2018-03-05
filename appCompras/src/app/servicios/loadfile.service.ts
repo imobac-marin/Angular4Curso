@@ -33,4 +33,25 @@ export class LoadfileService {
     this.angularFireDatabase.list(`${this.basePath}/`).push(upload);
   }
 
+  getUploads() {
+    this.uploads = this.angularFireDatabase.list(this.basePath);
+    return this.uploads;
+  }
+
+  deleteUpload(upload: Archivo) {
+    this.deleteFileData(upload.$key).then(() => {
+      this.deleteFileStorage(upload.name);
+    }).catch(error => console.log(error));
+  }
+
+  private deleteFileData(key: string) {
+    return this.angularFireDatabase.list(`${this.basePath}/`).remove(key);
+  }
+
+  private deleteFileStorage(name: string) {
+    const storageRef = firebase.storage().ref();
+    storageRef.child(`${this.basePath}/${name}`).delete();
+
+  }
+
 }
